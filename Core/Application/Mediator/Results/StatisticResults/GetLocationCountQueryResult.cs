@@ -9,6 +9,5 @@ namespace Application.Mediator.Results.StatisticResults
 {
     public class GetLocationCountQueryResult:IRequest<int>
     {
-        public int LocationCount { get; set; }
     }
 }

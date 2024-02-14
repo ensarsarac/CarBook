@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace Application.Mediator.Results.StatisticResults
 {
-    public class GetCarCountQueryResult:IRequest<int>
+    public class GetMaxBrandCarQueryResult:IRequest<string>
     {
+      
     }
 }

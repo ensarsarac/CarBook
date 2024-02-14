@@ -9,6 +9,5 @@ namespace Application.Mediator.Results.StatisticResults
 {
     public class GetWeekAvgPriceQueryResult:IRequest<decimal>
     {
-        public decimal Price { get; set; }
     }
 }

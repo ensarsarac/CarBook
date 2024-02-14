@@ -9,6 +9,5 @@ namespace Application.Mediator.Results.StatisticResults
 {
     public class GetBrandCountQueryResult:IRequest<int>
     {
-        public int BrandCount { get; set; }
     }
 }

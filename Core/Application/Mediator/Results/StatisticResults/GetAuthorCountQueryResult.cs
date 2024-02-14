@@ -9,6 +9,5 @@ namespace Application.Mediator.Results.StatisticResults
 {
     public class GetAuthorCountQueryResult:IRequest<int>
     {
-        public int AuthorCount { get; set; }
     }
 }

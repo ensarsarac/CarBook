@@ -9,6 +9,5 @@ namespace Application.Mediator.Results.StatisticResults
 {
     public class GetAutomaticCarCountQueryResult:IRequest<int>
     {
-        public int AutomaticCarCount { get; set; }
     }
 }

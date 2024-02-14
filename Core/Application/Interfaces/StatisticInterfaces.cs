@@ -15,5 +15,13 @@ namespace Application.Interfaces
         decimal GetWeekAvgPriceRentACar();
         decimal GetMonthAvgPriceRentACar();
         int AutomaticTransmissionCar();
+        string MaxBrandCar();
+        string MaxCommentByBlog();
+        int GetCarCountByKmSmallerThen1000();
+        int GetCarCountByFuelBenzine();
+        int GetCarCountByFuelDiesel();
+        int GetCarCountByFuelElectric();
+        string GetCarBrandAndModelByRentPriceMax();
+        string GetCarBrandAndModelByRentPriceMin();
     }
 }
