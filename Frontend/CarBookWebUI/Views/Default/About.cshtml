@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewData["Title"] = "Hakkımızda";
+    ViewData["Text1"]="Ana Sayfa";
+    ViewData["Text2"]="Hakkımızda";
+    Layout = "~/Views/Shared/_UILayout.cshtml";
+}
+
+@await Component.InvokeAsync("_AboutUsComponent")
+@await Component.InvokeAsync("_BecomeADriverComponent")
+@await Component.InvokeAsync("_TestimonialComponent")
+<section class="ftco-counter ftco-section img" id="section-counter">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
+                <div class="block-18">
+                    <div class="text text-border d-flex align-items-center">
+                        <strong class="number" data-number="60">0</strong>
+                        <span>Year <br>Experienced</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
+                <div class="block-18">
+                    <div class="text text-border d-flex align-items-center">
+                        <strong class="number" data-number="1090">0</strong>
+                        <span>Total <br>Cars</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
+                <div class="block-18">
+                    <div class="text text-border d-flex align-items-center">
+                        <strong class="number" data-number="2590">0</strong>
+                        <span>Happy <br>Customers</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
+                <div class="block-18">
+                    <div class="text d-flex align-items-center">
+                        <strong class="number" data-number="67">0</strong>
+                        <span>Total <br>Branches</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

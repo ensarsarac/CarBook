@@ -1,0 +1,32 @@
+﻿
+@model UpdateFooterAddressDto
+@{
+    ViewData["Title"] = "UpdateFooterAddress";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">İletişim ve Footer Adres Alanı Güncelleme</h4>
+        <p class="card-subtitle mb-4">Adres alanı ile ilgili bilgileri eksiksiz doldurmanız önemlidir. Veri girişinden sonra güncelle butonuna tıklayarak işlemi tamamlayabilirsiniz.</p>
+        <form method="post">
+            <input type="hidden" asp-for="FooterAddressID" />
+            <div class="form-group">
+                <label class="form-label">Adres</label>
+                <input type="text" class="form-control" asp-for="Address" placeholder="Adres Girişi Yapınuz">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Telefon</label>
+                <input type="text" class="form-control" asp-for="PhoneNumber" placeholder="Telefon Numarası Girişi Yapınuz">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Email</label>
+                <input type="text" class="form-control" asp-for="Email" placeholder="Email Girişi Yapınuz">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Adres</label>
+                <textarea class="form-control" cols="7" rows="10" asp-for="Description" placeholder="Açıklama Girişi Yapınuz">@Model.Description </textarea>
+            </div>
+            <button type="submit" class="btn btn-primary waves-effect waves-light">Adres Bilgilerini Güncelle</button>
+        </form>
+    </div>
+</div>

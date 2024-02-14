@@ -1,0 +1,14 @@
+﻿
+@model List<GetCategoryListGroupBy>
+
+<div class="sidebar-box ftco-animate">
+    <div class="categories">
+        <h3>Kategoriler</h3>
+        @foreach (var item in Model)
+        {
+            <li><a href="#">@item.key <span>(@item.count)</span> </a></li>
+        }
+        
+
+    </div>
+</div>

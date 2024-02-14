@@ -1,0 +1,20 @@
+﻿@model UpdatePricingDto
+@{
+    ViewData["Title"] = "UpdatePricing";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Ödeme Periyodu Güncelleme Sayfası</h4>
+        <p class="card-subtitle mb-4">Ödeme Periyodu ile ilgili eksiksiz doldurmanız önemlidir. Veri girişinden sonra güncelle butonuna tıklayarak işlemi tamamlayabilirsiniz.</p>
+        <form method="post">
+            <input type="hidden" asp-for="PricingID" />
+            <div class="form-group">
+                <label class="form-label">Ödeme Türü Başlığı</label>
+                <input type="text" class="form-control" asp-for="Name" placeholder="Ödeme Periyodu Adını Giriniz (Günlük,Haftalık,Aylık vs..)">
+            </div>
+            <button type="submit" class="btn btn-primary waves-effect waves-light">Ödeme Bilgisini Güncelle</button>
+        </form>
+    </div>
+</div>

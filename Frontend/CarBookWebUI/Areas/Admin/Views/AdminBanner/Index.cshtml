@@ -1,0 +1,56 @@
+﻿
+@model GetBannerDto
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Ana Sayfa Banner Alanı</h4>
+                <p class="card-subtitle mb-4">
+                    Ana sayfanın banner alanında bulunan bilgileri aşağıdan düzenleyebilirsiniz. Tema bütünlüğü için lütfen sadece 1 tane veri girişi yapınız aksi durumlarda tema bütünlüğü bozulacaktır.
+                </p>
+                <div class="table-responsive">
+                    <table class="table mb-0">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Başlık</th>
+                                <th>Açıklama</th>
+                                <th>Video Açıklaması</th>
+                                <th>Video Url</th>
+                                <th>Güncelle</th>
+                                <th>Youtube'da Aç'</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                                @{
+                                count++;
+
+                                }
+                                    <tr>
+                                        <td>@count</td>
+                                        <td>@Model.Title</td>
+                                <td>@Model.Description</td>
+                                <td>@Model.VideoDescription</td>
+                                <td>@Model.VideoUrl</td>
+                                <td><a href="/Admin/AdminBanner/UpdateBanner/@Model.BannerID/" class="btn btn-outline-warning">Düzenle</a></td>
+                                <td><a href="@Model.VideoUrl" class="btn btn-outline-dark">Youtube'da Aç</a></td>
+                                    </tr>
+                                
+
+                            
+
+                        </tbody>
+                    </table>                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+﻿
+@model int
+
+@{
+    ViewData["Title"] = "BlogDetails";
+    ViewData["Text1"] = "Ana Sayfa";
+    ViewData["Text2"] = "Blog Detayları";
+    Layout = "~/Views/Shared/_UILayout.cshtml";
+}
+
+@await Component.InvokeAsync("_BlogDetailsComponent",@Model)
+

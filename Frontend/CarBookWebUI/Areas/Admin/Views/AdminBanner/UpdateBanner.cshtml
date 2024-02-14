@@ -1,0 +1,36 @@
+﻿
+@model UpdateBannerDto
+
+@{
+    ViewData["Title"] = "UpdateBanner";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="card">
+    <div class="card-body">
+
+        <h4 class="card-title">Banner Güncelleme Sayfası</h4>
+        <p class="card-subtitle mb-4">Banner ile ilgili özellikleri eksiksiz doldurmanız önemlidir. Veri girişinden sonra güncelle butonuna tıklayarak işlemi tamamlayabilirsiniz.</p>
+
+        <form method="post">
+            <input type="hidden" asp-for="BannerID" />
+            <div class="form-group">
+                <label class="form-label">Banner Başlık</label>
+                <input type="text" class="form-control" asp-for="Title" placeholder="Banner Başlık Girişi Yapınuz">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Banner Açıklama</label>
+                <input type="text" class="form-control" asp-for="Description" placeholder="Banner Açıklama Girişi Yapınuz">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Video Açıklaması</label>
+                <input type="text" class="form-control" asp-for="VideoDescription" placeholder="Banner Video Açıklama Girişi Yapınuz">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Video Url</label>
+                <input type="text" class="form-control" asp-for="VideoUrl" placeholder="Banner Video Url Girişi Yapınuz">
+            </div>
+            <button type="submit" class="btn btn-primary waves-effect waves-light">Banner Güncelle</button>
+        </form>
+
+    </div> <!-- end card-body-->
+</div> <!-- end card-->

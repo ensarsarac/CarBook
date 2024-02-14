@@ -1,0 +1,56 @@
+﻿
+@model UpdateCarDto
+
+@{
+    ViewData["Title"] = "UpdateCar";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="card">
+    <div class="card-body">
+
+        <h4 class="card-title">Araç Güncelleme Sayfası</h4>
+        <p class="card-subtitle mb-4">Araç ile ilgili temel bilgileri eksiksiz doldurmanız önemlidir. Veri girişlerinden sonra aracı güncelle butonuna tıklayarak işlemi tamamlayabilirsiniz.</p>
+
+        <form method="post">
+            <input type="hidden" asp-for="CarID" />
+            <div class="form-group">
+                <label class="form-label">Model</label>
+                <input type="text" class="form-control" asp-for="Model">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Marka</label>
+                @Html.DropDownListFor(x => x.BrandID, (SelectList)ViewBag.brands, "Marka Seçiniz", new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label class="form-label">Kapak Fotoğrafı</label>
+                <input type="text" class="form-control" asp-for="CoverImage" >
+            </div>
+            <div class="form-group">
+                <label class="form-label">Km</label>
+                <input type="text" class="form-control" asp-for="Km">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Vites Türü</label>
+                <input type="text" class="form-control" asp-for="Transmission">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Koltuk Sayısı</label>
+                <input type="text" class="form-control" asp-for="Seat">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Bagaj Sayısı</label>
+                <input type="text" class="form-control" asp-for="Luggage">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Yakıt Türü</label>
+                <input type="text" class="form-control" asp-for="Fuel" >
+            </div>
+            <div class="form-group">
+                <label class="form-label">Büyük Resim</label>
+                <input type="text" class="form-control" asp-for="BigImageUrl">
+            </div>
+            <button type="submit" class="btn btn-primary waves-effect waves-light">Aracı Güncelle</button>
+        </form>
+
+    </div> <!-- end card-body-->
+</div> <!-- end card-->

@@ -1,0 +1,56 @@
+﻿
+@model List<GetFeatureDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Araba Özellikleri Listesi</h4>
+                <p class="card-subtitle mb-4">
+                    Arabalarla ilgili yeni özellik ekleme (Klima, Bluetooth, Audio, Elektrik vs.), özellikler listesi, özellikler üzerinde düzenleme ve bir özelliği kaldırma işlemini buradan gerçekleştirebilirsiniz. Temada veri tutarlılığını sağlayabilmek için lütfen 3'ün katı şeklinde veri girişi yapınız. 
+                </p>
+                <div class="table-responsive">
+                    <table class="table mb-0">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Özellik</th>                                
+                                <th>Sil</th>                                
+                                <th>Güncelle</th>                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if(Model.Count > 0)
+                            {
+                                @foreach (var item in Model)
+                                {
+                                    count++;
+                                    <tr>
+                                        <td>@count</td>
+                                        <td>@item.Name</td>
+                                        <td><a href="/Admin/AdminFeature/RemoveFeature/@item.FeatureID/" class="btn btn-outline-danger">Sil</a></td>
+                                        <td><a href="/Admin/AdminFeature/UpdateFeature/@item.FeatureID/" class="btn btn-outline-warning">Düzenle</a></td>
+                                        
+                                    </tr>
+                                }
+
+                            }
+                           
+                        </tbody>
+                    </table>
+                    @if(Model.Count <=0)
+                    {
+                        <h4 class="my-3">Herhangi bir özellik bulunamadı.</h4>
+                    }
+                    <a href="/Admin/AdminFeature/CreateFeature/" class="btn btn-outline-primary">Yeni Özellik Girişi</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

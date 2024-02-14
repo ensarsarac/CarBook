@@ -1,0 +1,20 @@
+﻿
+@model DtoLayer.About.GetAboutDto
+
+<section class="ftco-section ftco-about">
+    <div class="container">
+        <div class="row no-gutters">
+            <div class="col-md-6 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(@Model.ImageUrl);">
+            </div>
+            <div class="col-md-6 wrap-about ftco-animate">
+                <div class="heading-section heading-section-white pl-md-5">
+                    <span class="subheading">Hakkımızda</span>
+                    <h2 class="mb-4">@Model.Title</h2>
+
+                   <p>@Model.Description</p>
+                    <p><a href="/RentACar/Index/" class="btn btn-primary py-3 px-4">Hemen Araç Kirala</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

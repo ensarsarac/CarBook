@@ -1,0 +1,28 @@
+﻿
+@model List<GetCommentByBlog>
+
+<h3 class="mb-5">Yorum(@Model.Count())</h3>
+<ul class="comment-list">
+    
+    @if (Model.Count() <= 0)
+    {
+        <h4>Bu bloğa henüz yorum yapılmadı.</h4>
+    }
+    else
+    {
+        foreach (var item in Model)
+        {
+            <li class="comment">
+                
+                <div class="comment-body">
+                    <h3>@item.AuthorName</h3>
+                    <div class="meta">@item.Date.ToLongDateString()</div>
+                    <p>@item.Description</p>
+                </div>
+            </li>
+        }
+    }
+
+    
+</ul>
+

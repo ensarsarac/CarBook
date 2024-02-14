@@ -1,0 +1,44 @@
+﻿
+@model GetAboutDto
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Ana Sayfa Hakkımızda Alanı</h4>
+                <p class="card-subtitle mb-4">
+                    Ana sayfanın hakkımızda alanında bulunan bilgileri aşağıdan düzenleyebilirsiniz. Tema bütünlüğü için lütfen sadece 1 tane veri girişi yapınız aksi durumlarda tema bütünlüğü bozulacaktır.
+                </p>
+                <div class="table-responsive">
+                    <table class="table mb-0">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Başlık</th>
+                                <th>Açıklama</th>
+                                <th>Resim Url</th>
+                                <th>Güncelle</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                count++;
+                            }
+                            <tr>
+                                <td>@count</td>
+                                <td>@Model.Title</td>
+                                <td>@Model.Description</td>
+                                <td>@Model.ImageUrl</td>
+                                <td><a href="/Admin/AdminAbout/UpdateAbout/@Model.AboutID/" class="btn btn-outline-warning">Düzenle</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

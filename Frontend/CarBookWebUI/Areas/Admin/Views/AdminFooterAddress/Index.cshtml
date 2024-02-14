@@ -1,0 +1,41 @@
+﻿@model GetFooterAddress
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="row">
+	<div class="col-xl-12">
+		<div class="card">
+			<div class="card-body">
+				<h4 class="card-title">İletişim ve Footer Alanı Adres Sayfası</h4>
+				<p class="card-subtitle mb-4">
+					İLetişim ve Footer alanlarında yer alan adres bilgilerine ait işlemlerin bu sayfadan gerçekleştirebilirsiniz. Harita bilgisini lokasyon değeri olarak Google Map üzerinden alabilirsiniz.
+				</p>
+				<div class="table-responsive">
+					<table class="table mb-0">
+						<thead>
+							<tr>
+								<th>Adres</th>
+								<th>Email</th>
+								<th>Telefon</th>
+								<th>Açıklama</th>
+								<th>Güncelle</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>@Model.Address</td>
+								<td>@Model.Email</td>
+								<td>@Model.PhoneNumber</td>
+								<td>@Model.Description</td>
+								<td><a href="/Admin/AdminFooterAddress/UpdateFooterAddress/@Model.FooterAddressID/" class="btn btn-outline-warning">Düzenle</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

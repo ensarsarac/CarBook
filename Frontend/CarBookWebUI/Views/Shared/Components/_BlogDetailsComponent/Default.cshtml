@@ -1,0 +1,45 @@
+﻿
+
+@model GetBlogById
+
+<section class="ftco-section ftco-degree-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 ftco-animate">
+                <h2 class="mb-3">@Model.Title</h2>
+                <p>@Model.Description</p>
+                <p>
+                    <img src="images/image_7.jpg" alt="" class="img-fluid">
+                </p>               
+                @await Component.InvokeAsync("_BlogTagComponent",Model.BlogId)
+                <div class="about-author d-flex p-4 bg-light">
+                    <div class="bio mr-5">
+                        <img src="~/@Model.AuthorImage" alt="Image placeholder" style="width:129px;height:129px;" class="img-fluid mb-4">
+                    </div>
+                    <div class="desc">
+                        <h3>@Model.AuthorName</h3>
+                        <p>@Model.AuthorDescription</p>
+                    </div>
+                </div>
+                <div class="pt-5 mt-5">
+                    @await Component.InvokeAsync("_BlogCommentComponent",Model.BlogId)
+                    @await Component.InvokeAsync("_LeaveACommentBlogComponent")                    
+                </div>
+            </div> <!-- .col-md-8 -->
+            <div class="col-md-4 sidebar ftco-animate">
+                <div class="sidebar-box">
+                    <form action="#" class="search-form">
+                        <div class="form-group">
+                            <span class="icon icon-search"></span>
+                            <input type="text" class="form-control" placeholder="Aranacak kelimeyi giriniz..">
+                        </div>
+                    </form>
+                </div>
+                @await Component.InvokeAsync("_BlogCategoriesComponent")
+                @await Component.InvokeAsync("_BlogDetailsLast3BlogComponent")
+                @await Component.InvokeAsync("_TagCloudComponent")
+                @await Component.InvokeAsync("_BlogDetailsParagraphComponent")
+            </div>
+        </div>
+    </div>
+</section>

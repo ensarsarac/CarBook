@@ -1,0 +1,36 @@
+﻿@model CreateTestimonialDto
+@{
+    ViewData["Title"] = "CreateTestimonial";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <div class="card-body">
+
+        <h4 class="card-title">Yeni Referans Girişi</h4>
+        <p class="card-subtitle mb-4">Referans ile ilgili bilgileri eksiksiz doldurmanız önemlidir. Referans girişinden sonra kaydet butonuna tıklayarak işlemi tamamlayabilirsiniz.</p>
+
+        <form method="post">
+            <div class="form-group">
+                <label class="form-label"> Adı Soyad</label>
+                <input type="text" class="form-control" asp-for="Name" placeholder="Ad ve Soyad Girişi Yapınuz">
+            </div>
+            <div class="form-group">
+                <label class="form-label"> Ünvan</label>
+                <input type="text" class="form-control" asp-for="Title" placeholder="Referans Ünvan Girişi Yapınuz">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Yazar Resim Url</label>
+                <input type="text" class="form-control" asp-for="ImageUrl" placeholder=" Yazar Image Url Girişi Yapınuz">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Yazar Açıklama</label>
+                <textarea class="form-control" cols="7" rows="10" asp-for="Comment" placeholder="Referans Yorumu Girişi Yapınuz"></textarea>
+            </div>
+
+            
+            <button type="submit" class="btn btn-primary waves-effect waves-light">Referansı Kaydet</button>
+        </form>
+
+    </div>
+</div>

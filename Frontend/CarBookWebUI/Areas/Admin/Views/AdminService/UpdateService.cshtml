@@ -1,0 +1,28 @@
+﻿@model UpdateServiceDto
+@{
+    ViewData["Title"] = "UpdateService";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Hizmet Güncelleme Sayfası</h4>
+        <p class="card-subtitle mb-4"> Ana sayfa ve hizmetler bölümünde yer alan hizmet listesinin admin tarafındaki güncelleme işlemini aşağıda sayfadan gerçekleştirebilirsiniz.</p>
+        <form method="post">
+            <input type="hidden" asp-for="ServiceID" />
+            <div class="form-group">
+                <label class="form-label">Hizmet</label>
+                <input type="text" class="form-control" asp-for="Title" placeholder="Hizmet Adı Girişi Yapınuz">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Ikon</label>
+                <input type="text" class="form-control" asp-for="IconUrl" placeholder="Icon Girişi Yapınuz">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Hizmet</label>
+                <textarea cols="7" rows="10" class="form-control" asp-for="Description" placeholder="Hizmet Açıklaması Girişi Yapınuz"> </textarea>
+            </div>
+            <button type="submit" class="btn btn-primary waves-effect waves-light">Hizmeti Güncelle</button>
+        </form>
+    </div>
+</div>
+

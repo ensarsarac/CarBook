@@ -1,0 +1,58 @@
+﻿
+
+@model List<GetSocialMediaDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Sosyal Medya Hesap Linkleri Yönetimi</h4>
+                <p class="card-subtitle mb-4">
+                    Kullandığınız sosyal medya hesaplarına ait bilgileri yönetebileceğiniz sayfadır.
+                </p>
+                <div class="table-responsive">
+                    <table class="table mb-0">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Başlık</th>
+                                <th>Url</th>
+                                <th>Ikon</th>
+                                <th>Sil</th>
+                                <th>Güncelle</th>
+                                <th>Aç</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.Count > 0)
+                            {
+                                @foreach (var item in Model)
+                                {
+                                    count++;
+                                    <tr>
+                                        <td>@count</td>
+                                        <td>@item.Name</td>
+                                        <td>@item.Url</td>
+                                        <td>@item.Icon</td>
+                                        <td><a href="/Admin/AdminSocialMedia/RemoveSocialMedia/@item.SocialMediaID/" class="btn btn-outline-danger">Sil</a></td>
+                                        <td><a href="/Admin/AdminSocialMedia/UpdateSocialMedia/@item.SocialMediaID/" class="btn btn-outline-warning">Düzenle</a></td>
+                                        <td><a href="@item.Url" class="btn btn-outline-dark">Aç</a></td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                    @if (Model.Count <= 0)
+                    {
+                        <h4 class="my-3">Herhangi bir sosyal medya hesabı bulunamadı.</h4>
+                    }
+                    <a href="/Admin/AdminSocialMedia/CreateSocialMedia/" class="btn btn-outline-primary">Yeni Sosyal Medya Girişi</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

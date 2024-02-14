@@ -1,0 +1,58 @@
+﻿
+@model CreateCarDto
+
+@{
+    ViewData["Title"] = "CreateCar";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <div class="card-body">
+
+        <h4 class="card-title">Yeni Araç Girişi</h4>
+        <p class="card-subtitle mb-4">Araç ile ilgili temel bilgileri eksiksiz doldurmanız önemlidir. Veri girişlerinden sonra kaydet butonuna tıklayarak işlemi tamamlayabilirsiniz.</p>
+
+        <form method="post">
+            <div class="form-group">
+                <label class="form-label">Model</label>
+                <input type="text" class="form-control" asp-for="Model" placeholder="Model Girişi Yapınuz">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Marka</label>
+                @Html.DropDownListFor(x => x.BrandID, (SelectList)ViewBag.brands,"Marka Seçiniz",new {@class="form-control"})
+                
+            </div>
+            <div class="form-group">
+                <label class="form-label">Kapak Fotoğrafı</label>
+                <input type="text" class="form-control" asp-for="CoverImage" placeholder="Kapat Fotoğraf Linkini Giriniz">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Km</label>
+                <input type="text" class="form-control" asp-for="Km" placeholder="Km Bilgisi Giriniz">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Vites Türü</label>
+                <input type="text" class="form-control" asp-for="Transmission" placeholder="Vites Türü Giriniz">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Koltuk Sayısı</label>
+                <input type="text" class="form-control" asp-for="Seat" placeholder="Koltuk Sayısı Giriniz">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Bagaj Sayısı</label>
+                <input type="text" class="form-control" asp-for="Luggage" placeholder="Bagaj Sayısını Giriniz">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Yakıt Türü</label>
+                <input type="text" class="form-control" asp-for="Fuel" placeholder="Yakıt Türünü Giriniz">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Büyük Resim</label>
+                <input type="text" class="form-control" asp-for="BigImageUrl" placeholder="Araç Detayında Gözükecek Kapak Fotoğraf Linki ">
+            </div>       
+            <button type="submit" class="btn btn-primary waves-effect waves-light">Aracı Kaydet</button>
+        </form>
+
+    </div> <!-- end card-body-->
+</div> <!-- end card-->
+

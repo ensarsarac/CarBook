@@ -1,0 +1,21 @@
+﻿
+@model CreateBrandDto
+
+@{
+    ViewData["Title"] = "CreateFeature";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Yeni Araç Marka Girişi</h4>
+        <p class="card-subtitle mb-4">Marka ile ilgili eksiksiz doldurmanız önemlidir. Veri girişinden sonra kaydet butonuna tıklayarak işlemi tamamlayabilirsiniz.</p>
+        <form method="post">
+            <div class="form-group">
+                <label class="form-label">Marka Adı</label>
+                <input type="text" class="form-control" asp-for="name" placeholder="Marka Girişi Yapınuz">
+            </div>
+            <button type="submit" class="btn btn-primary waves-effect waves-light">Markayı Kaydet</button>
+        </form>
+    </div>
+</div>
