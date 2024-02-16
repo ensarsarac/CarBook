@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Application.Mediator.Handlers.StatisticHandlers
 {
-    public class GetAuthorCountQueryResultHandler : IRequestHandler<GetAuthorCountQueryResult, int>
+    public class GetAuthorCountQueryResultHandler : IRequestHandler<GetAuthorCountQueryResult, GetAuthorCountQueryResult>
     {
         private readonly StatisticInterfaces _statisticInterfaces;
 
@@ -18,10 +18,13 @@ namespace Application.Mediator.Handlers.StatisticHandlers
             _statisticInterfaces = statisticInterfaces;
         }
 
-        public async Task<int> Handle(GetAuthorCountQueryResult request, CancellationToken cancellationToken)
+        public async Task<GetAuthorCountQueryResult> Handle(GetAuthorCountQueryResult request, CancellationToken cancellationToken)
         {
-            var value =  _statisticInterfaces.GetAuthorCount();
-            return value;
+            var value = _statisticInterfaces.GetAuthorCount();
+            return new GetAuthorCountQueryResult()
+            {
+                AuthorCount=value
+            };
         }
     }
 }

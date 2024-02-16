@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Application.Mediator.Handlers.StatisticHandlers
 {
-    public class GetWeekAvgPriceQueryResultHandler : IRequestHandler<GetWeekAvgPriceQueryResult, decimal>
+    public class GetWeekAvgPriceQueryResultHandler : IRequestHandler<GetWeekAvgPriceQueryResult, GetWeekAvgPriceQueryResult>
     {
         private readonly StatisticInterfaces _statisticInterfaces;
 
@@ -18,10 +18,13 @@ namespace Application.Mediator.Handlers.StatisticHandlers
             _statisticInterfaces = statisticInterfaces;
         }
 
-        public async Task<decimal> Handle(GetWeekAvgPriceQueryResult request, CancellationToken cancellationToken)
+        public async Task<GetWeekAvgPriceQueryResult> Handle(GetWeekAvgPriceQueryResult request, CancellationToken cancellationToken)
         {
             var value = _statisticInterfaces.GetWeekAvgPriceRentACar();
-            return value;
+            return new GetWeekAvgPriceQueryResult()
+            {
+                WeekAvgPrice=value,
+            };
         }
     }
 }

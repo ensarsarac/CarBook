@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Application.Mediator.Handlers.StatisticHandlers
 {
-    public class GetMaxCommentByBlogQueryResultHandler : IRequestHandler<GetMaxCommentByBlogQueryResult, string>
+    public class GetMaxCommentByBlogQueryResultHandler : IRequestHandler<GetMaxCommentByBlogQueryResult, GetMaxCommentByBlogQueryResult>
     {
         private readonly StatisticInterfaces _statisticInterfaces;
 
@@ -18,10 +18,13 @@ namespace Application.Mediator.Handlers.StatisticHandlers
             _statisticInterfaces = statisticInterfaces;
         }
 
-        public async Task<string> Handle(GetMaxCommentByBlogQueryResult request, CancellationToken cancellationToken)
+        public async Task<GetMaxCommentByBlogQueryResult> Handle(GetMaxCommentByBlogQueryResult request, CancellationToken cancellationToken)
         {
             var value = _statisticInterfaces.MaxCommentByBlog();
-            return value;
+            return new GetMaxCommentByBlogQueryResult()
+            {
+                BlogName = value,
+            };
         }
     }
 }

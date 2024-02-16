@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Application.Mediator.Handlers.StatisticHandlers
 {
-    public class GetCarCountQueryResultHandler : IRequestHandler<GetCarCountQueryResult, int>
+    public class GetCarCountQueryResultHandler : IRequestHandler<GetCarCountQueryResult, GetCarCountQueryResult>
     {
         private readonly ICarRepository _carRepository;
 
@@ -19,10 +19,13 @@ namespace Application.Mediator.Handlers.StatisticHandlers
             _carRepository = repository;
         }
 
-        public async Task<int> Handle(GetCarCountQueryResult request, CancellationToken cancellationToken)
+        public async Task<GetCarCountQueryResult> Handle(GetCarCountQueryResult request, CancellationToken cancellationToken)
         {
             var value = _carRepository.GetCarCount();
-            return value;
+            return new GetCarCountQueryResult()
+            {
+                CarCount = value,
+            };
         }
     }
 }

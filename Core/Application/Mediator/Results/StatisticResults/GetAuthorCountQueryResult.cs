@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace Application.Mediator.Results.StatisticResults
 {
-    public class GetAuthorCountQueryResult:IRequest<int>
+    public class GetAuthorCountQueryResult:IRequest<GetAuthorCountQueryResult>
     {
+        public int AuthorCount { get; set; }
     }
 }

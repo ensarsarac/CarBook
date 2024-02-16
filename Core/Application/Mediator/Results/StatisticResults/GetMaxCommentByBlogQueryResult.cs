@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace Application.Mediator.Results.StatisticResults
 {
-    public class GetMaxCommentByBlogQueryResult:IRequest<string>
+    public class GetMaxCommentByBlogQueryResult:IRequest<GetMaxCommentByBlogQueryResult>
     {
+        public string BlogName { get; set; }
     }
 }

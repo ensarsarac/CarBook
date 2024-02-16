@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Application.Mediator.Handlers.StatisticHandlers
 {
-    public class GetCarBrandAndModelByRentPriceMinQueryResultHandler : IRequestHandler<GetCarBrandAndModelByRentPriceMinQueryResult, string>
+    public class GetCarBrandAndModelByRentPriceMinQueryResultHandler : IRequestHandler<GetCarBrandAndModelByRentPriceMinQueryResult, GetCarBrandAndModelByRentPriceMinQueryResult>
     {
         private readonly StatisticInterfaces _statisticInterfaces;
 
@@ -19,10 +19,13 @@ namespace Application.Mediator.Handlers.StatisticHandlers
             _statisticInterfaces = statisticInterfaces;
         }
 
-        public async Task<string> Handle(GetCarBrandAndModelByRentPriceMinQueryResult request, CancellationToken cancellationToken)
+        public async Task<GetCarBrandAndModelByRentPriceMinQueryResult> Handle(GetCarBrandAndModelByRentPriceMinQueryResult request, CancellationToken cancellationToken)
         {
             var value = _statisticInterfaces.GetCarBrandAndModelByRentPriceMin();
-            return value;
+            return new GetCarBrandAndModelByRentPriceMinQueryResult()
+            {
+                BrandAndModelName=value,
+            };
         }
     }
 }

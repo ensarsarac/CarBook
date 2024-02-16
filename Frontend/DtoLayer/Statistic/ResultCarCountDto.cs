@@ -1,13 +1,12 @@
-﻿using MediatR;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Mediator.Results.StatisticResults
+namespace DtoLayer.Statistic
 {
-    public class GetCarCountQueryResult:IRequest<GetCarCountQueryResult>
+    public class ResultCarCountDto
     {
         public int CarCount { get; set; }
     }

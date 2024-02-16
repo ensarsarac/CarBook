@@ -6,17 +6,19 @@
 <h4>İstatistikler</h4>
 <hr />
 <div class="row">
+    
+
     <div class="col-md-6 col-xl-3">
         <div class="card bg-primary border-primary">
             <div class="card-body">
                 <div class="mb-4">
-                    <span class="badge badge-soft-light float-right">Daily</span>
-                    <h5 class="card-title mb-0 text-white">Cost per Unit</h5>
+                    <span class="badge badge-soft-light float-right">Aktif Araçlar</span>
+                    <h5 class="card-title mb-0 text-white">Toplam Araç Sayısı</h5>
                 </div>
                 <div class="row d-flex align-items-center mb-4">
                     <div class="col-8">
                         <h2 class="d-flex align-items-center mb-0 text-white">
-                            $17.21
+                            @ViewBag.carCount
                         </h2>
                     </div>
                     <div class="col-4 text-right">
@@ -30,18 +32,18 @@
             </div>
         </div>
     </div> <!-- end col-->
-
+   
     <div class="col-md-6 col-xl-3">
         <div class="card bg-success border-success">
             <div class="card-body">
                 <div class="mb-4">
-                    <span class="badge badge-soft-light float-right">Per Week</span>
-                    <h5 class="card-title mb-0 text-white">Market Revenue</h5>
+                    <span class="badge badge-soft-light float-right">Aktif Yazarlar</span>
+                    <h5 class="card-title mb-0 text-white">Toplam Yazar Sayısı</h5>
                 </div>
                 <div class="row d-flex align-items-center mb-4">
                     <div class="col-8">
                         <h2 class="d-flex align-items-center text-white mb-0">
-                            $1875.54
+                            @ViewBag.authorCount
                         </h2>
                     </div>
                     <div class="col-4 text-right">
@@ -60,13 +62,13 @@
         <div class="card bg-warning border-warning">
             <div class="card-body">
                 <div class="mb-4">
-                    <span class="badge badge-soft-light float-right">Per Month</span>
-                    <h5 class="card-title mb-0 text-white">Expenses</h5>
+                    <span class="badge badge-soft-light float-right">Mevcut Lokasyonlar</span>
+                    <h5 class="card-title mb-0 text-white">Toplam Lokasyon Sayısı</h5>
                 </div>
                 <div class="row d-flex align-items-center mb-4">
                     <div class="col-8">
                         <h2 class="d-flex align-items-center text-white mb-0">
-                            $784.62
+                            @ViewBag.locationCount
                         </h2>
                     </div>
                     <div class="col-4 text-right">
@@ -85,13 +87,13 @@
         <div class="card bg-info border-info">
             <div class="card-body">
                 <div class="mb-4">
-                    <span class="badge badge-soft-light float-right">All Time</span>
-                    <h5 class="card-title mb-0 text-white">Daily Visits</h5>
+                    <span class="badge badge-soft-light float-right">Tüm Zamanlar</span>
+                    <h5 class="card-title mb-0 text-white">Toplam Marka Sayısı</h5>
                 </div>
                 <div class="row d-flex align-items-center mb-4">
                     <div class="col-8">
                         <h2 class="d-flex align-items-center text-white mb-0">
-                            1,15,187
+                            @ViewBag.brandCount
                         </h2>
                     </div>
                     <div class="col-4 text-right">
@@ -111,13 +113,13 @@
         <div class="card bg-primary border-primary">
             <div class="card-body">
                 <div class="mb-4">
-                    <span class="badge badge-soft-light float-right">Daily</span>
-                    <h5 class="card-title mb-0 text-white">Cost per Unit</h5>
+                    <span class="badge badge-soft-light float-right">Günlük</span>
+                    <h5 class="card-title mb-0 text-white">Günlük Ortalama Fiyat</h5>
                 </div>
                 <div class="row d-flex align-items-center mb-4">
                     <div class="col-8">
                         <h2 class="d-flex align-items-center mb-0 text-white">
-                            $17.21
+                            @ViewBag.avgRentPriceForDaily ₺
                         </h2>
                     </div>
                     <div class="col-4 text-right">
@@ -136,13 +138,13 @@
         <div class="card bg-success border-success">
             <div class="card-body">
                 <div class="mb-4">
-                    <span class="badge badge-soft-light float-right">Per Week</span>
-                    <h5 class="card-title mb-0 text-white">Market Revenue</h5>
+                    <span class="badge badge-soft-light float-right">Haftalık</span>
+                    <h5 class="card-title mb-0 text-white">Haftalık Ortalama Fiyat</h5>
                 </div>
                 <div class="row d-flex align-items-center mb-4">
                     <div class="col-8">
                         <h2 class="d-flex align-items-center text-white mb-0">
-                            $1875.54
+                            @ViewBag.avgRentPriceForWeekly ₺
                         </h2>
                     </div>
                     <div class="col-4 text-right">
@@ -161,13 +163,13 @@
         <div class="card bg-warning border-warning">
             <div class="card-body">
                 <div class="mb-4">
-                    <span class="badge badge-soft-light float-right">Per Month</span>
-                    <h5 class="card-title mb-0 text-white">Expenses</h5>
+                    <span class="badge badge-soft-light float-right">Aylık</span>
+                    <h5 class="card-title mb-0 text-white">Toplam Aylık Ortalama</h5>
                 </div>
                 <div class="row d-flex align-items-center mb-4">
                     <div class="col-8">
                         <h2 class="d-flex align-items-center text-white mb-0">
-                            $784.62
+                            @ViewBag.avgRentPriceForMonthly ₺
                         </h2>
                     </div>
                     <div class="col-4 text-right">
@@ -186,13 +188,13 @@
         <div class="card bg-info border-info">
             <div class="card-body">
                 <div class="mb-4">
-                    <span class="badge badge-soft-light float-right">All Time</span>
-                    <h5 class="card-title mb-0 text-white">Daily Visits</h5>
+                    <span class="badge badge-soft-light float-right">Tüm zamanlar</span>
+                    <h5 class="card-title mb-0 text-white">Otomatik Araba Sayısı</h5>
                 </div>
                 <div class="row d-flex align-items-center mb-4">
                     <div class="col-8">
                         <h2 class="d-flex align-items-center text-white mb-0">
-                            1,15,187
+                            @ViewBag.AutomaticCarCount
                         </h2>
                     </div>
                     <div class="col-4 text-right">
@@ -212,13 +214,13 @@
         <div class="card bg-primary border-primary">
             <div class="card-body">
                 <div class="mb-4">
-                    <span class="badge badge-soft-light float-right">Daily</span>
-                    <h5 class="card-title mb-0 text-white">Cost per Unit</h5>
+                    <span class="badge badge-soft-light float-right">Marka</span>
+                    <h5 class="card-title mb-0 text-white">En Çok Kiralanan Marka</h5>
                 </div>
                 <div class="row d-flex align-items-center mb-4">
                     <div class="col-8">
                         <h2 class="d-flex align-items-center mb-0 text-white">
-                            $17.21
+                            @ViewBag.maxBrandCar
                         </h2>
                     </div>
                     <div class="col-4 text-right">
@@ -237,13 +239,13 @@
         <div class="card bg-success border-success">
             <div class="card-body">
                 <div class="mb-4">
-                    <span class="badge badge-soft-light float-right">Per Week</span>
-                    <h5 class="card-title mb-0 text-white">Market Revenue</h5>
+                    <span class="badge badge-soft-light float-right">Tüm zamanlar</span>
+                    <h5 class="card-title mb-0 text-white">En Fazla Yorum Alan Blog</h5>
                 </div>
                 <div class="row d-flex align-items-center mb-4">
                     <div class="col-8">
                         <h2 class="d-flex align-items-center text-white mb-0">
-                            $1875.54
+                            @ViewBag.maxCommentByBlog
                         </h2>
                     </div>
                     <div class="col-4 text-right">
@@ -262,13 +264,13 @@
         <div class="card bg-warning border-warning">
             <div class="card-body">
                 <div class="mb-4">
-                    <span class="badge badge-soft-light float-right">Per Month</span>
-                    <h5 class="card-title mb-0 text-white">Expenses</h5>
+                    <span class="badge badge-soft-light float-right">Tüm zamanlar</span>
+                    <h5 class="card-title mb-0 text-white">1000 Km'den Az Araç Sayısı</h5>
                 </div>
                 <div class="row d-flex align-items-center mb-4">
                     <div class="col-8">
                         <h2 class="d-flex align-items-center text-white mb-0">
-                            $784.62
+                            @ViewBag.CarKmSmaller1000
                         </h2>
                     </div>
                     <div class="col-4 text-right">
@@ -287,13 +289,13 @@
         <div class="card bg-info border-info">
             <div class="card-body">
                 <div class="mb-4">
-                    <span class="badge badge-soft-light float-right">All Time</span>
-                    <h5 class="card-title mb-0 text-white">Daily Visits</h5>
+                    <span class="badge badge-soft-light float-right">Tüm zamanlar</span>
+                    <h5 class="card-title mb-0 text-white">Benzinli Araba Sayısı</h5>
                 </div>
                 <div class="row d-flex align-items-center mb-4">
                     <div class="col-8">
                         <h2 class="d-flex align-items-center text-white mb-0">
-                            1,15,187
+                            @ViewBag.CarCountByFuelBenzine
                         </h2>
                     </div>
                     <div class="col-4 text-right">
@@ -313,13 +315,13 @@
         <div class="card bg-primary border-primary">
             <div class="card-body">
                 <div class="mb-4">
-                    <span class="badge badge-soft-light float-right">Daily</span>
-                    <h5 class="card-title mb-0 text-white">Cost per Unit</h5>
+                    <span class="badge badge-soft-light float-right">Tüm zamanlar</span>
+                    <h5 class="card-title mb-0 text-white">Dizel Araba Sayısı</h5>
                 </div>
                 <div class="row d-flex align-items-center mb-4">
                     <div class="col-8">
                         <h2 class="d-flex align-items-center mb-0 text-white">
-                            $17.21
+                            @ViewBag.CarCountByFuelDiesel
                         </h2>
                     </div>
                     <div class="col-4 text-right">
@@ -338,13 +340,13 @@
         <div class="card bg-success border-success">
             <div class="card-body">
                 <div class="mb-4">
-                    <span class="badge badge-soft-light float-right">Per Week</span>
-                    <h5 class="card-title mb-0 text-white">Market Revenue</h5>
+                    <span class="badge badge-soft-light float-right">Tüm Zamanlar</span>
+                    <h5 class="card-title mb-0 text-white">Elektrikli Araba Sayısı</h5>
                 </div>
                 <div class="row d-flex align-items-center mb-4">
                     <div class="col-8">
                         <h2 class="d-flex align-items-center text-white mb-0">
-                            $1875.54
+                            @ViewBag.CarCountByFuelElectric
                         </h2>
                     </div>
                     <div class="col-4 text-right">
@@ -363,13 +365,13 @@
         <div class="card bg-warning border-warning">
             <div class="card-body">
                 <div class="mb-4">
-                    <span class="badge badge-soft-light float-right">Per Month</span>
-                    <h5 class="card-title mb-0 text-white">Expenses</h5>
+                    <span class="badge badge-soft-light float-right">Tüm zamanlar</span>
+                    <h5 class="card-title mb-0 text-white">En Pahalı Aracın Modeli ve Markası</h5>
                 </div>
                 <div class="row d-flex align-items-center mb-4">
                     <div class="col-8">
                         <h2 class="d-flex align-items-center text-white mb-0">
-                            $784.62
+                            @ViewBag.BrandAndModelByMaxPrice
                         </h2>
                     </div>
                     <div class="col-4 text-right">
@@ -388,13 +390,13 @@
         <div class="card bg-info border-info">
             <div class="card-body">
                 <div class="mb-4">
-                    <span class="badge badge-soft-light float-right">All Time</span>
-                    <h5 class="card-title mb-0 text-white">Daily Visits</h5>
+                    <span class="badge badge-soft-light float-right">Tüm zamanlar</span>
+                    <h5 class="card-title mb-0 text-white">En Düşün Aracın Modeli ve Markası</h5>
                 </div>
                 <div class="row d-flex align-items-center mb-4">
                     <div class="col-8">
                         <h2 class="d-flex align-items-center text-white mb-0">
-                            1,15,187
+                            @ViewBag.BrandAndModelByMinPrice
                         </h2>
                     </div>
                     <div class="col-4 text-right">
