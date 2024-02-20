@@ -20,18 +20,18 @@ namespace Application.Mediator.Handlers.CarPricingHandlers
 
         public async Task<List<GetCarPricingQueryResult>> Handle(GetCarPricingQueryResult request, CancellationToken cancellationToken)
         {
-            var values = await _carPricingRepository.GetAllCarPricingWithInclude();
-            return values.Select(x=> new GetCarPricingQueryResult()
-            {
-                Amount = x.Amount,
-                CarModel=x.Car.Model,
-                CarBrand=x.Car.Brand.Name,
-                CarCoverImage=x.Car.CoverImage,
-                CarID = x.CarID,
-                CarPricingID = x.CarPricingID,
-                PricingID = x.CarPricingID,
-                PricingName = x.Pricing.Name
-            }).Where(x=>x.PricingName=="Günlük").ToList();
+                var values = await _carPricingRepository.GetAllCarPricingWithInclude();
+                return values.Select(x=> new GetCarPricingQueryResult()
+                {
+                    Amount = x.Amount,
+                    CarModel=x.Car.Model,
+                    CarBrand=x.Car.Brand.Name,
+                    CarCoverImage=x.Car.CoverImage,
+                    CarID = x.CarID,
+                    CarPricingID = x.CarPricingID,
+                    PricingID = x.CarPricingID,
+                    PricingName = x.Pricing.Name
+                }).Where(x=>x.PricingName=="Günlük").ToList();
         }
     }
 }

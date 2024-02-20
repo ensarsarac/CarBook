@@ -1,4 +1,5 @@
-﻿using CarBookDomain.Entities;
+﻿using Application.ViewModels;
+using CarBookDomain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,6 @@ namespace Application.Interfaces
     {
         Task<List<CarPricing>> GetAllCarPricingWithInclude();
         Task<List<CarPricing>> GetLast5CarPricingWithBrand();
+        List<CarPricingViewModel> GetCarPricingWithAllTimePeriod();
     }
 }

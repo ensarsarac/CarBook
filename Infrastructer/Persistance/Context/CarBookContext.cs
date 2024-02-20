@@ -24,6 +24,15 @@ namespace Persistance.Context
               .WithMany(y => y.Comments)
               .HasForeignKey(z => z.BlogId)
               .OnDelete(DeleteBehavior.ClientSetNull);
+
+            modelBuilder.Entity<Reservation>().HasOne(x => x.PickUpLocation)
+                .WithMany(y => y.PickUpReservation)
+                .HasForeignKey(z => z.PickUpLocationId)
+                .OnDelete(DeleteBehavior.ClientSetNull);
+            modelBuilder.Entity<Reservation>().HasOne(x => x.DropOffLocation)
+                .WithMany(y => y.DropOffReservation)
+                .HasForeignKey(z => z.DropOffLocationId)
+                .OnDelete(DeleteBehavior.ClientSetNull);
         }
         public DbSet<About>Abouts{ get; set; }
         public DbSet<Banner>Banners{ get; set; }
@@ -45,5 +54,7 @@ namespace Persistance.Context
         public DbSet<Blog>Blogs{ get; set; }
         public DbSet<TagCloud>TagClouds{ get; set; }
         public DbSet<Comment>Comments{ get; set; }
+        public DbSet<RentACar> RentACars{ get; set; }
+        public DbSet<Reservation> Reservations{ get; set; }
     }
 }

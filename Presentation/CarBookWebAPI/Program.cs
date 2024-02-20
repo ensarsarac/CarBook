@@ -23,6 +23,7 @@ builder.Services.AddScoped(typeof(IBlogRepository),typeof(BlogRepository));
 builder.Services.AddScoped(typeof(ITagCloudRepository),typeof(TagCloudRepository));
 builder.Services.AddScoped(typeof(ICommentRepository),typeof(CommentRepository));
 builder.Services.AddScoped(typeof(StatisticInterfaces),typeof(StatisticRepository));
+builder.Services.AddScoped(typeof(IRentACarRepository),typeof(RentACarRepository));
 
 // Add services to the container.
 builder.Services.AddScoped<GetAboutQueryHandler>();

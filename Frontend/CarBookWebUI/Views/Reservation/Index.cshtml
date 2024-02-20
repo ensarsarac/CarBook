@@ -1,0 +1,46 @@
+﻿@model CreateReservationDto
+@{
+    ViewData["Text1"] = "Ana Sayfa";
+    ViewData["Text2"] = "Araç Kiralama";
+    Layout = "~/Views/Shared/_UILayout.cshtml";
+}
+<style>
+    #dropdown option {
+        color: black;
+    }
+</style>
+<div class="col-md-12 block-9 mb-md-5">
+    <form method="post" class="bg-light p-5 contact-form">
+        <h3 class="alert alert-success">Araç Kiralama Formu</h3>
+        <div class="form-group">
+            <input type="hidden" class="form-control" placeholder="Kiralamak istediğiniz araba" value="@ViewBag.carid" name="CarId">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Adınız" name="Name">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Soyadınız" name="Surname">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Mail Adresiniz" name="Email">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Telefon Numaranız" name="PhoneNumber">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Yaşınız" name="Age">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Ehliyet Yılınız" name="DriverLicenseYear">
+        </div>
+        @Html.DropDownListFor(x => x.PickUpLocationId, (SelectList)ViewBag.locations, "Alınmak İstenen Lokasyon", new { @class = "form-control mb-3", @id = "dropdown" })
+        @Html.DropDownListFor(x => x.DropOffLocationId, (SelectList)ViewBag.locations, "İade Edilmek İstenen Lokasyon ", new { @class = "form-control mb-3", @id = "dropdown" })
+        <div class="form-group">
+            <textarea name="Description" id="" cols="30" rows="7" class="form-control" placeholder="Varsa eklemek istedikleriniz.."></textarea>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary py-3 px-5">Rezervasyon Tamamla</button>
+        </div>
+    </form>
+
+</div>
