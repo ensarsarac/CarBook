@@ -59,7 +59,9 @@ namespace Persistance.Repositories
 
 		public async Task<List<CarPricing>> GetLast5CarPricingWithBrand()
 		{
-            var values = await _context.CarPricings.Include(x => x.Car).ThenInclude(y => y.Brand).Include(x => x.Pricing).OrderByDescending(x => x.CarPricingID).Take(5).ToListAsync();
+            var pricingId = await _context.Pricings.Where(x => x.Name == "Günlük").Select(y => y.PricingID).FirstOrDefaultAsync();
+
+			var values = await _context.CarPricings.Include(x => x.Car).ThenInclude(y => y.Brand).Include(x => x.Pricing).OrderByDescending(x => x.CarPricingID).Where(x=>x.PricingID == pricingId).Take(5).ToListAsync();
 			return values;
 		}
 	}

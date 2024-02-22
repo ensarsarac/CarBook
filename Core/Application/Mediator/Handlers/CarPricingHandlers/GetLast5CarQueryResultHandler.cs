@@ -31,7 +31,7 @@ namespace Application.Mediator.Handlers.CarPricingHandlers
 				CarPricingID = x.CarPricingID,
 				PricingID = x.CarPricingID,
 				PricingName = x.Pricing.Name
-			}).Where(x => x.PricingName == "Günlük").ToList();
+			}).ToList();
 		}
 	}
 }

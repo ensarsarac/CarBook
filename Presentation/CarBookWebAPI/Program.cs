@@ -24,6 +24,7 @@ builder.Services.AddScoped(typeof(ITagCloudRepository),typeof(TagCloudRepository
 builder.Services.AddScoped(typeof(ICommentRepository),typeof(CommentRepository));
 builder.Services.AddScoped(typeof(StatisticInterfaces),typeof(StatisticRepository));
 builder.Services.AddScoped(typeof(IRentACarRepository),typeof(RentACarRepository));
+builder.Services.AddScoped(typeof(ICarFeatureRepository),typeof(CarFeatureRepository));
 
 // Add services to the container.
 builder.Services.AddScoped<GetAboutQueryHandler>();

@@ -1,0 +1,24 @@
+﻿@model List<GetCarFeatureDto>
+@{
+    ViewData["Title"] = "CarDetails";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Araba Detayları</h1>
+<hr />
+<form method="post">
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        <div class="form-group">
+            <input type="hidden" asp-for="@Model[i].CarFeatureID" />
+            <input type="hidden" asp-for="@Model[i].FeatureID" />
+        <input type="hidden" asp-for="@Model[i].FeatureName" />
+        <input type="checkbox" asp-for="@Model[i].Available" />
+            <label class="form-label">@Model[i].FeatureName</label>
+        </div>
+    }
+        
+    <button type="submit" class="btn btn-outline-warning mr-3">Güncelle</button>
+    <a href="/Admin/AdminCar/Index" class="btn btn-outline-dark">Geri Dön</a>
+
+</form>

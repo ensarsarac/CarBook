@@ -1,5 +1,8 @@
-﻿using DtoLayer.Brand;
+﻿using CarBookWebUI.Areas.Admin.Models;
+using DtoLayer.Brand;
 using DtoLayer.Car;
+using DtoLayer.CarFeature;
+using DtoLayer.Feature;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
@@ -27,6 +30,7 @@ namespace CarBookWebUI.Areas.Admin.Controllers
             {
                 var readData = await responseMessage.Content.ReadAsStringAsync();
                 var jsonData = JsonConvert.DeserializeObject<List<GetCarWithBrandDtos>>(readData);
+                
                 return View(jsonData);
             }
             return View();
@@ -55,7 +59,7 @@ namespace CarBookWebUI.Areas.Admin.Controllers
             var responseMessage = await client.PostAsync("https://localhost:7029/api/Car", content);
             if (responseMessage.IsSuccessStatusCode)
             {
-                return RedirectToAction("Index", "AdminCar", new {area="Admin"});
+                return RedirectToAction("Index", "AdminCar", new { area = "Admin" });
             }
             var responseMessage2 = await client.GetAsync("https://localhost:7029/api/Brand");
             var readData2 = await responseMessage2.Content.ReadAsStringAsync();
@@ -82,6 +86,7 @@ namespace CarBookWebUI.Areas.Admin.Controllers
             var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync($"https://localhost:7029/api/Car/{id}");
             var responseMessage2 = await client.GetAsync("https://localhost:7029/api/Brand");
+
             if (responseMessage.IsSuccessStatusCode)
             {
 
@@ -114,7 +119,41 @@ namespace CarBookWebUI.Areas.Admin.Controllers
 
             return View(updateCarDto);
         }
+        [Route("CarDetails/{id}")]
+        [HttpGet]
+        public async Task<IActionResult> CarDetails(int id)
+        {
+            TempData["carid"] = id;
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync($"https://localhost:7029/api/CarFeature/GetCarFeatureList?id={id}");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var readData = await responseMessage.Content.ReadAsStringAsync();
+                var jsonData = JsonConvert.DeserializeObject<List<GetCarFeatureDto>>(readData);                
+                return View(jsonData);
+            }
+            return View();
+        }
 
-
+        [Route("CarDetails/{id}")]
+        [HttpPost]
+        public async Task<IActionResult> CarDetails(List<GetCarFeatureDto> model)
+        {
+            
+            foreach (var item in model)
+            {
+                if (item.Available)
+                {
+                    var client = _httpClientFactory.CreateClient();
+                    await client.GetAsync($"https://localhost:7029/api/CarFeature/CarFeatureAvailableChangeTrue?id={item.CarFeatureID}");
+                }
+                else
+                {
+                    var client = _httpClientFactory.CreateClient();
+                    await client.GetAsync($"https://localhost:7029/api/CarFeature/CarFeatureAvailableChangeFalse?id={item.CarFeatureID}");
+                }
+            }
+            return RedirectToAction("Index");
+        }
     }
 }
