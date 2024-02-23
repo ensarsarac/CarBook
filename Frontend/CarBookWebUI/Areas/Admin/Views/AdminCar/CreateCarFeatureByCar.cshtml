@@ -1,0 +1,34 @@
+﻿@model List<GetCarFeatureByCarDto>
+@{
+    ViewData["Title"] = "CreateCarFeatureByCar";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Araca Ait Özellik Ekleme Sayfası</h4>
+                <p class="card-subtitle mb-4">
+                    Araca ait özellik eklemesi yapılacak sayfadır.
+                </p>
+                <div class="table-responsive">
+                    <form method="post">
+                        @for (int i = 0; i < Model.Count; i++)
+                        {
+                            <div class="form-group mb-0">
+                                <input type="hidden" asp-for="@Model[i].FeatureID" />
+                                <input type="hidden" asp-for="@Model[i].Name" />
+                                <input type="checkbox" asp-for="@Model[i].Available" />
+                                <label>@Model[i].Name</label>
+                            </div>
+                        }
+
+                        <button type="submit" class="btn btn-outline-primary mr-3">Araca Özellikleri Ata</button>
+                        <a href="/Admin/AdminCar/Index" class="btn btn-outline-dark">Geri Dön</a>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

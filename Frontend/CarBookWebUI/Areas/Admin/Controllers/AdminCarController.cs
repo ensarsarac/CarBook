@@ -155,5 +155,47 @@ namespace CarBookWebUI.Areas.Admin.Controllers
             }
             return RedirectToAction("Index");
         }
+        [Route("CreateCarFeatureByCar/{id}")]
+        [HttpGet]
+        public async Task<IActionResult> CreateCarFeatureByCar(int id)
+        {
+            ViewBag.id = id;
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync($"https://localhost:7029/api/Feature");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var readData = await responseMessage.Content.ReadAsStringAsync();
+                var jsonData = JsonConvert.DeserializeObject<List<GetCarFeatureByCarDto>>(readData);
+                return View(jsonData);
+            }
+            return View();
+        }
+        [Route("CreateCarFeatureByCar/{id}")]
+        [HttpPost]
+        public async Task<IActionResult> CreateCarFeatureByCar(List<GetCarFeatureByCarDto> model)
+        {
+            
+            foreach (var item in model)
+            {
+                var Carid = (int)TempData["carid"];
+                if (item.Available)
+                {
+                    var value = new CreateCarFeatureByCarDto()
+                    {
+                        Available = true,
+                        CarID = Carid,
+                        FeatureID=item.FeatureID,
+                    };
+                    var client = _httpClientFactory.CreateClient();
+                    var jsonData = JsonConvert.SerializeObject(value);
+                    StringContent content = new StringContent(jsonData,Encoding.UTF8,"application/json");
+                    var res=await client.PostAsync("https://localhost:7029/api/CarFeature", content);
+                                       
+                }
+            }            
+            return RedirectToAction("Index");
+        }
+
+
     }
 }

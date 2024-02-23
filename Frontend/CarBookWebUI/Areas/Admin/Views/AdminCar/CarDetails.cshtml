@@ -3,22 +3,39 @@
     ViewData["Title"] = "CarDetails";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Araca Ait Özellikler Listesi</h4>
+                <p class="card-subtitle mb-4">
+                    Araca ait özellik ekleme yapabilir, mevcut özellikleri kaldırabilir, ilgili güncellemeleri gerçekleştirebilirsiniz.
+                </p>
+                <div class="table-responsive">
+                    <form method="post">
+                        @for (int i = 0; i < Model.Count; i++)
+                        {
+                            <div class="form-group mb-0">
+                                <input type="hidden" asp-for="@Model[i].CarFeatureID" />
+                                <input type="hidden" asp-for="@Model[i].FeatureID" />
+                                <input type="hidden" asp-for="@Model[i].FeatureName" />
+                                <input type="checkbox" asp-for="@Model[i].Available"  />
+                                <label>@Model[i].FeatureName</label>
+                            </div>
+                        }
 
-<h1>Araba Detayları</h1>
-<hr />
-<form method="post">
-    @for (int i = 0; i < Model.Count; i++)
-    {
-        <div class="form-group">
-            <input type="hidden" asp-for="@Model[i].CarFeatureID" />
-            <input type="hidden" asp-for="@Model[i].FeatureID" />
-        <input type="hidden" asp-for="@Model[i].FeatureName" />
-        <input type="checkbox" asp-for="@Model[i].Available" />
-            <label class="form-label">@Model[i].FeatureName</label>
+                        <button type="submit" class="btn btn-outline-success mr-3">Değişiklikleri Kaydet</button>
+                        <a href="/Admin/AdminCar/Index" class="btn btn-outline-dark">Geri Dön</a>
+
+                    </form>
+                    @if (Model.Count <= 0)
+                    {
+                        <h4 class="my-3">Herhangi bir özellik bulunamadı.</h4>
+                    }
+                </div>
+            </div>
         </div>
-    }
-        
-    <button type="submit" class="btn btn-outline-warning mr-3">Güncelle</button>
-    <a href="/Admin/AdminCar/Index" class="btn btn-outline-dark">Geri Dön</a>
+    </div>
+</div>
 
-</form>
+

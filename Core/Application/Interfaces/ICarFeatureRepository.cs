@@ -12,5 +12,6 @@ namespace Application.Interfaces
         Task<List<CarFeature>> GetAllWithInclude(int id);
         Task CarFeatureAvailablaChangeTrue(int id);
         Task CarFeatureAvailablaChangeFalse(int id);
+        void CreateCarFeatureByCar(CarFeature carFeature);
     }
 }
