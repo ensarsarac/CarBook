@@ -1,0 +1,126 @@
+﻿@model GetCarByIdWithBrandDto
+@{
+    ViewData["Title"] = "CarDetails";
+    ViewData["Text1"] = "Ana Sayfa";
+    ViewData["Text2"] = "Araba Detayı";
+    Layout = "~/Views/Shared/_UILayout.cshtml";
+}
+
+<section class="ftco-section ftco-car-details">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-12">
+				<div class="car-details">
+					<div class="img rounded" style="background-image: url(@Model.CoverImage);"></div>
+					<div class="text text-center">
+						<span class="subheading">@Model.Model</span>
+						<h2>@Model.BrandName</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md d-flex align-self-stretch ftco-animate">
+				<div class="media block-6 services">
+					<div class="media-body py-md-4">
+						<div class="d-flex mb-3 align-items-center">
+							<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-dashboard"></span></div>
+							<div class="text">
+								<h3 class="heading mb-0 pl-3">
+									Km
+									<span>@Model.Km</span>
+								</h3>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md d-flex align-self-stretch ftco-animate">
+				<div class="media block-6 services">
+					<div class="media-body py-md-4">
+						<div class="d-flex mb-3 align-items-center">
+							<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-pistons"></span></div>
+							<div class="text">
+								<h3 class="heading mb-0 pl-3">
+									Vites Türü
+									<span>@Model.Transmission</span>
+								</h3>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md d-flex align-self-stretch ftco-animate">
+				<div class="media block-6 services">
+					<div class="media-body py-md-4">
+						<div class="d-flex mb-3 align-items-center">
+							<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-car-seat"></span></div>
+							<div class="text">
+								<h3 class="heading mb-0 pl-3">
+									Koltuk
+									<span>@Model.Seat</span>
+								</h3>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md d-flex align-self-stretch ftco-animate">
+				<div class="media block-6 services">
+					<div class="media-body py-md-4">
+						<div class="d-flex mb-3 align-items-center">
+							<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-backpack"></span></div>
+							<div class="text">
+								<h3 class="heading mb-0 pl-3">
+									Bagaj
+									<span>@Model.Luggage</span>
+								</h3>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md d-flex align-self-stretch ftco-animate">
+				<div class="media block-6 services">
+					<div class="media-body py-md-4">
+						<div class="d-flex mb-3 align-items-center">
+							<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-diesel"></span></div>
+							<div class="text">
+								<h3 class="heading mb-0 pl-3">
+									Yakıt Türü
+									<span>@Model.Fuel</span>
+								</h3>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 pills">
+				<div class="bd-example bd-example-tabs">
+					<div class="d-flex justify-content-center">
+						<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+
+							<li class="nav-item">
+								<a class="nav-link active" id="pills-description-tab" data-toggle="pill" href="#pills-description" role="tab" aria-controls="pills-description" aria-expanded="true">Özellikler</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" id="pills-manufacturer-tab" data-toggle="pill" href="#pills-manufacturer" role="tab" aria-controls="pills-manufacturer" aria-expanded="true">Açıklama</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" id="pills-review-tab" data-toggle="pill" href="#pills-review" role="tab" aria-controls="pills-review" aria-expanded="true">Değerlendirmeler</a>
+							</li>
+						</ul>
+					</div>
+
+					<div class="tab-content" id="pills-tabContent">
+						@await Component.InvokeAsync("_CarDescriptionFeaturesComponent",Model.CarID)
+						@await Component.InvokeAsync("_CarDescriptionComponent", Model.CarID)
+						@await Component.InvokeAsync("_CarCommentByIdComponent", Model.CarID)
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

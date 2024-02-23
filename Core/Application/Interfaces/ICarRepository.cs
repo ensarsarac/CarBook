@@ -10,6 +10,7 @@ namespace Application.Interfaces
 	public interface ICarRepository
 	{
 		Task<List<Car>> GetCarListWithBrand();
+		Task<Car> GetCarById(int id);
 		int GetCarCount();
 	}
 }

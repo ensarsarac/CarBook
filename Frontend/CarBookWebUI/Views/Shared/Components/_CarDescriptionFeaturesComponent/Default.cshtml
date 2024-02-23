@@ -1,0 +1,51 @@
+﻿@model List<GetCarFeatureDto>
+
+<div class="tab-pane fade show active" id="pills-description" role="tabpanel" aria-labelledby="pills-description-tab">
+	<div class="row">
+		<div class="col-md-4">
+			<ul class="features">
+				@for (int i = 0; i < 5; i++)
+				{
+					if (Model[i].Available)
+					{
+						<li class="check"><span class="ion-ios-checkmark"></span>@Model[i].FeatureName</li>
+					}
+					else
+					{
+						<li class="remove"><span class="ion-ios-close"></span>@Model[i].FeatureName</li>
+					}
+				}			
+			</ul>
+		</div>
+		<div class="col-md-4">
+			<ul class="features">
+				@for (int i = 5; i < 10; i++)
+				{
+					if (Model[i].Available)
+					{
+						<li class="check"><span class="ion-ios-checkmark"></span>@Model[i].FeatureName</li>
+					}
+					else
+					{
+						<li class="remove"><span class="ion-ios-close"></span>@Model[i].FeatureName</li>
+					}
+				}
+			</ul>
+		</div>
+		<div class="col-md-4">
+			<ul class="features">
+				@for (int i = 10; i < Model.Count(); i++)
+				{
+					if (Model[i].Available)
+					{
+						<li class="check"><span class="ion-ios-checkmark"></span>@Model[i].FeatureName</li>
+					}
+					else
+					{
+						<li class="remove"><span class="ion-ios-close"></span>@Model[i].FeatureName</li>
+					}
+				}
+			</ul>
+		</div>
+	</div>
+</div>

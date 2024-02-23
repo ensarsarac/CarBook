@@ -14,5 +14,6 @@ namespace CarBookDomain.Entities
         public string Description { get; set; }
         public List<Blog> Blogs{ get; set; }
         public List<Comment> Comments{ get; set; }
+        public List<CarComment> CarComments{ get; set; }
     }
 }

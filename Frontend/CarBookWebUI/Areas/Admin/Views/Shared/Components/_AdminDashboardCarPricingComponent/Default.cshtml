@@ -1,0 +1,41 @@
+﻿@model List<ResultCarPricingWithAllTimePeriod>
+<div class="col-xl-6">
+		<div class="card">
+			<div class="card-body">
+
+				<h4 class="card-title">Araba Fiyatları</h4>
+				<p class="card-subtitle mb-4 font-size-13">
+					Araçların günlük, haftalık ve aylık kiralama fiyatları.
+				</p>
+
+				<div class="table-responsive">
+					<table class="table table-centered table-hover table-xl mb-0" id="recent-orders">
+						<thead>
+							<tr>
+								<th class="border-top-0">Marka</th>
+								<th class="border-top-0">Model</th>
+								<th class="border-top-0">Günlük</th>
+								<th class="border-top-0">Haftalık</th>
+								<th class="border-top-0">Aylık</th>
+							</tr>
+						</thead>
+						<tbody>
+						@foreach (var item in Model)
+						{
+							<tr>
+								<td class="text-truncate">@item.BrandName</td>
+								<td class="text-truncate">@item.Model</td>
+								<td class="text-truncate">@item.DailyAmount</td>
+								<td class="text-truncate">@item.WeeklyAmount</td>
+								<td class="text-truncate">@item.MonthlyAmount</td>														
+							</tr>
+						}
+							
+							
+						</tbody>
+					</table>
+				</div>
+
+			</div> <!-- end card-body-->
+		</div> <!-- end card-->
+	</div>

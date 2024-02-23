@@ -25,6 +25,8 @@ builder.Services.AddScoped(typeof(ICommentRepository),typeof(CommentRepository))
 builder.Services.AddScoped(typeof(StatisticInterfaces),typeof(StatisticRepository));
 builder.Services.AddScoped(typeof(IRentACarRepository),typeof(RentACarRepository));
 builder.Services.AddScoped(typeof(ICarFeatureRepository),typeof(CarFeatureRepository));
+builder.Services.AddScoped(typeof(ICarDescriptionRepository),typeof(CarDescriptionRepository));
+builder.Services.AddScoped(typeof(ICarCommentRepository),typeof(CarCommentRepository));
 
 // Add services to the container.
 builder.Services.AddScoped<GetAboutQueryHandler>();
@@ -51,6 +53,7 @@ builder.Services.AddScoped<CreateCarCommandHandler>();
 builder.Services.AddScoped<RemoveCarCommandHandler>();
 builder.Services.AddScoped<UpdateCarCommandHandler>();
 builder.Services.AddScoped<GetCarsWithBrandQueryHandler>();
+builder.Services.AddScoped<GetCarByIdWithBrandQueryResultHandler>();
 
 
 builder.Services.AddScoped<GetCategoryByIdResultHandler>();

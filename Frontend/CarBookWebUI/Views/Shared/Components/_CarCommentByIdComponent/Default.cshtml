@@ -1,0 +1,27 @@
+﻿
+@model List<GetCarCommentByIdDto>
+
+<div class="tab-pane fade" id="pills-review" role="tabpanel" aria-labelledby="pills-review-tab">
+	<div class="row">
+		<div class="col-md-7">
+			<h3 class="head">@Model.Count() Değerlendirme</h3>
+			@foreach (var item in Model)
+			{
+				<div class="review d-flex">
+					<div class="user-img" style="background-image: url(/@item.AuthorImage)"></div>
+					<div class="desc">
+						<h4>
+							<span class="text-left">@item.AuthorName</span>
+							<span class="text-right">@item.CommentDate.ToLongDateString()</span>
+						</h4>
+						
+						<p>@item.Comment</p>
+					</div>
+				</div>
+			}
+			
+			
+		</div>
+		
+	</div>
+</div>
