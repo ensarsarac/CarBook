@@ -7,11 +7,16 @@ using Application.Features.CQRS.Handlers.CategoryHandler;
 using Application.Features.CQRS.Handlers.ContactHandler;
 using Application.Interfaces;
 using Application.Services;
+using Application.Tools;
 using CarBookDomain.Entities;
+using CarBookWebAPI.Hubs;
 using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.IdentityModel.Tokens;
 using Persistance.Context;
 using Persistance.Repositories;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,6 +32,7 @@ builder.Services.AddScoped(typeof(IRentACarRepository),typeof(RentACarRepository
 builder.Services.AddScoped(typeof(ICarFeatureRepository),typeof(CarFeatureRepository));
 builder.Services.AddScoped(typeof(ICarDescriptionRepository),typeof(CarDescriptionRepository));
 builder.Services.AddScoped(typeof(ICarCommentRepository),typeof(CarCommentRepository));
+builder.Services.AddScoped(typeof(IAppUserRepository),typeof(AppUserRepository));
 
 // Add services to the container.
 builder.Services.AddScoped<GetAboutQueryHandler>();
@@ -69,6 +75,20 @@ builder.Services.AddScoped<RemoveContactCommandHandler>();
 
 builder.Services.AddApplicationService(builder.Configuration);
 
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>
+{
+	opt.RequireHttpsMetadata = false;
+	opt.TokenValidationParameters = new TokenValidationParameters()
+	{
+		ValidAudience=JwtTokenDefault.ValidAudience,
+		ValidIssuer=JwtTokenDefault.ValidIssuer,
+		ClockSkew=TimeSpan.Zero,
+		IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JwtTokenDefault.Key)),
+		ValidateIssuerSigningKey=true,
+		ValidateLifetime=true,
+	};
+});
+builder.Services.AddHttpClient();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -81,7 +101,7 @@ builder.Services.AddCors(opt =>
 		opts.AllowAnyHeader().AllowAnyMethod().SetIsOriginAllowed((host) => true).AllowCredentials();
 	});
 });
-
+builder.Services.AddSignalR();
 
 var app = builder.Build();
 
@@ -91,11 +111,12 @@ if (app.Environment.IsDevelopment())
 	app.UseSwagger();
 	app.UseSwaggerUI();
 }
-
+app.UseCors("WebApi");
 app.UseHttpsRedirection();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+app.MapHub<CarHub>("/carhub");
 
 app.Run();

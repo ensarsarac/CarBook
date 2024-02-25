@@ -57,5 +57,7 @@ namespace Persistance.Context
         public DbSet<RentACar> RentACars{ get; set; }
         public DbSet<Reservation> Reservations{ get; set; }
         public DbSet<CarComment> CarComments{ get; set; }
+        public DbSet<AppUser> AppUsers{ get; set; }
+        public DbSet<AppRole> AppRoles{ get; set; }
     }
 }
