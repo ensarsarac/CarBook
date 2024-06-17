@@ -2,6 +2,14 @@
 # Set default behavior to automatically normalize line endings.
 ###############################################################################
 * text=auto
+*.sol linguist-language=csharp
+*.html linguist-detectable=false
+*.cshtml linguist-detectable=false
+*.csharp linguist-detectable=true
+*.js linguist-detectable=false
+*.css linguist-detectable=false
+*.scss linguist-detectable=false
+*.less linguist-detectable=false
 
 ###############################################################################
 # Set default behavior for command prompt diff.
