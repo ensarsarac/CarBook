@@ -56,15 +56,15 @@
   <li>Entity Framework Code First LINQ</li>
   <li>SignalR</li>
 </ul>
-![Ekran görüntüsü 2024-02-25 121634](https://github.com/ensarsarac/CarBook/assets/76907308/7802ca30-25b8-419e-92da-4cf1f9881133)
-![Ekran görüntüsü 2024-02-25 121608](https://github.com/ensarsarac/CarBook/assets/76907308/24aa58ca-eb26-4f73-9bf9-a3a0d5b4cbbc)
-![Ekran görüntüsü 2024-02-25 121116](https://github.com/ensarsarac/CarBook/assets/76907308/ceb8be69-890f-4014-8ea6-34b12e0f0ddc)
-![Ekran görüntüsü 2024-02-25 121926](https://github.com/ensarsarac/CarBook/assets/76907308/4427721e-124b-4834-a0b7-918dc4a8fe06)
-![Ekran görüntüsü 2024-02-25 121815](https://github.com/ensarsarac/CarBook/assets/76907308/e5f6010b-d9d7-4604-9650-9727b1dd291d)
-![Ekran görüntüsü 2024-02-25 121802](https://github.com/ensarsarac/CarBook/assets/76907308/17d2ccfc-b5a0-4c23-8770-b483bb716624)
-![Ekran görüntüsü 2024-02-25 121743](https://github.com/ensarsarac/CarBook/assets/76907308/4160e33f-c5c7-4550-bd70-f7e4a737d175)
-![Ekran görüntüsü 2024-02-25 121714](https://github.com/ensarsarac/CarBook/assets/76907308/7af94a9e-0218-46ae-9f6f-79782af94b31)
-![Ekran görüntüsü 2024-02-25 121654](https://github.com/ensarsarac/CarBook/assets/76907308/304e7514-dda2-4390-bf0b-f1e5e5ee974d)
+<img src"https://github.com/ensarsarac/CarBook/assets/76907308/7802ca30-25b8-419e-92da-4cf1f9881133" />
+<img src="https://github.com/ensarsarac/CarBook/assets/76907308/24aa58ca-eb26-4f73-9bf9-a3a0d5b4cbbc" />
+<img src="https://github.com/ensarsarac/CarBook/assets/76907308/ceb8be69-890f-4014-8ea6-34b12e0f0ddc" />
+<img src="https://github.com/ensarsarac/CarBook/assets/76907308/4427721e-124b-4834-a0b7-918dc4a8fe06" />
+<img src="https://github.com/ensarsarac/CarBook/assets/76907308/e5f6010b-d9d7-4604-9650-9727b1dd291d" />
+<img src="https://github.com/ensarsarac/CarBook/assets/76907308/17d2ccfc-b5a0-4c23-8770-b483bb716624" />
+<img src="https://github.com/ensarsarac/CarBook/assets/76907308/4160e33f-c5c7-4550-bd70-f7e4a737d175" />
+<img src="https://github.com/ensarsarac/CarBook/assets/76907308/7af94a9e-0218-46ae-9f6f-79782af94b31" />
+<img src="https://github.com/ensarsarac/CarBook/assets/76907308/304e7514-dda2-4390-bf0b-f1e5e5ee974d" />
 
 
 
